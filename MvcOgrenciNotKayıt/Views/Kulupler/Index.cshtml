@@ -11,6 +11,7 @@
         <th>KULÜP ID</th>
         <th>KULÜP ADI</th>
         <th>KULÜP KONTENJAN</th>
+        <th>İŞLEMLER</th>
     </tr>
     <tbody>
         @foreach (var klp in Model)
@@ -19,9 +20,13 @@
                 <td>@klp.KULUPID</td>
                 <td>@klp.KULUPAD</td>
                 <td>@klp.KULUPKONTENJAN</td>
+                <td>
+                    <a href="/Kulupler/Sil/@klp.KULUPID" class="btn btn-danger">Sil</a>
+                    <a href="/Kulupler/KulupGetir/@klp.KULUPID" class="btn btn-success">Güncelle</a>
+                </td>
             </tr>
         }
 
     </tbody>
 </table>
-
+<a href="/Kulupler/YeniKulup" class="btn btn-primary">Yeni Kulüp Kaydı</a>

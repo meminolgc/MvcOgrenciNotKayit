@@ -16,5 +16,31 @@ namespace MvcOgrenciNotKayıt.Controllers
             var dersler = db.TBLDERSLER.ToList();
             return View(dersler);
         }
+
+        [HttpGet]
+        public ActionResult YeniDers()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult YeniDers(TBLDERSLER drs)
+        {
+            db.TBLDERSLER.Add(drs);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Sil(int id)
+        {
+            var ders = db.TBLDERSLER.Find(id);
+            db.TBLDERSLER.Remove(ders);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult DersGetir()
+        {
+            return View();
+        }
     }
 }

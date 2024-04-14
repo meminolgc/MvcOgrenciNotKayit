@@ -17,5 +17,18 @@ namespace MvcOgrenciNotKayıt.Controllers
             var notlar = db.TBLNOTLAR.ToList();
             return View(notlar);
         }
+        [HttpGet]
+        public ActionResult YeniSinav()
+        {
+            return View();
+        }
+        [HttpPost]  
+        public ActionResult YeniSinav(TBLNOTLAR tbl)
+        {
+            db.TBLNOTLAR.Add(tbl);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

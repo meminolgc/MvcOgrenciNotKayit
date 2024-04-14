@@ -10,6 +10,7 @@
     <tr>
         <th>DERS ID</th>
         <th>DERS ADI</th>
+        <th>İŞLEMLER</th>
     </tr>
     <tbody>
         @foreach(var drs in Model)
@@ -17,8 +18,11 @@
             <tr>
                 <td>@drs.DERSID</td>
                 <td>@drs.DERSAD</td>
+                <td><a href="/Default/Sil/@drs.DERSID" class="btn btn-danger">Sil</a>
+                    <a href="/Default/DersGetir/@drs.DERSID" class="btn btn-success">Güncelle</a>
+                </td>     
             </tr>
         }
     </tbody>
 </table>
-
+<a href="/Default/YeniDers" class="btn btn-primary">Yeni Ders Kaydı</a>

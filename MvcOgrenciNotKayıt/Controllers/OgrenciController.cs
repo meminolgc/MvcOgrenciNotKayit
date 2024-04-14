@@ -9,12 +9,39 @@ namespace MvcOgrenciNotKayıt.Controllers
 {
     public class OgrenciController : Controller
     {
-        // GET: Ogrenci
         DbOkulMvcEntities db = new DbOkulMvcEntities();
         public ActionResult Index()
         {
             var ogrenciler = db.TBLOGRENCILER.ToList();
             return View(ogrenciler);
+        }
+        [HttpGet]
+        public ActionResult YeniOgrenci()
+        {
+            List<SelectListItem> degerler = (from i in db.TBLKULUPLER.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.KULUPAD,
+                                                 Value = i.KULUPID.ToString()
+                                             }).ToList();
+            ViewBag.dgr = degerler;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YeniOgrenci(TBLOGRENCILER ogr)
+        {
+            var klp = db.TBLKULUPLER.Where(m => m.KULUPID == ogr.TBLKULUPLER.KULUPID).FirstOrDefault();
+            ogr.TBLKULUPLER = klp;
+            db.TBLOGRENCILER.Add(ogr);
+            db.SaveChanges();      
+            return RedirectToAction("Index");
+        }
+        public ActionResult Sil(int id)
+        {
+            var ogrenci = db.TBLOGRENCILER.Find(id);
+            db.TBLOGRENCILER.Remove(ogrenci);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
