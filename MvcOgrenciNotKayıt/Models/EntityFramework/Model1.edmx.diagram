@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb5d926d0ad84182ab886ee0a720085c" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="DbOkulMvcModel.TBLDERSLER" Width="1.5" PointX="3.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOkulMvcModel.TBLKULUPLER" Width="1.5" PointX="0.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOkulMvcModel.TBLNOTLAR" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOkulMvcModel.TBLOGRENCILER" Width="1.5" PointX="3.125" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DbOkulMvcModel.FK_TBLNOTLAR_TBLDERSLER" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="DbOkulMvcModel.FK_TBLOGRENCILER_TBLKULUPLER" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOkulMvcModel.FK_TBLNOTLAR_TBLOGRENCILER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
