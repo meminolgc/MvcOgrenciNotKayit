@@ -33,7 +33,7 @@ namespace MvcOgrenciNotKayıt.Controllers
             var klp = db.TBLKULUPLER.Where(m => m.KULUPID == ogr.TBLKULUPLER.KULUPID).FirstOrDefault();
             ogr.TBLKULUPLER = klp;
             db.TBLOGRENCILER.Add(ogr);
-            db.SaveChanges();      
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult Sil(int id)
@@ -42,6 +42,11 @@ namespace MvcOgrenciNotKayıt.Controllers
             db.TBLOGRENCILER.Remove(ogrenci);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult OgrenciGetir(int id)
+        {
+            var ogrenci = db.TBLOGRENCILER.Find(id);
+            return View("OgrenciGetir", ogrenci);
         }
     }
 }

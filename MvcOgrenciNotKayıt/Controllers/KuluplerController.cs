@@ -37,9 +37,17 @@ namespace MvcOgrenciNotKayıt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult KulupGetir()
+        public ActionResult KulupGetir(int id)
         {
-            return View();
+            var kulup = db.TBLKULUPLER.Find(id);
+            return View("KulupGetir", kulup);
+        }
+        public ActionResult Guncelle(TBLKULUPLER p)
+        {
+            var klp = db.TBLKULUPLER.Find(p.KULUPID);
+            klp.KULUPAD = p.KULUPAD;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Kulupler");
         }
     }
 }

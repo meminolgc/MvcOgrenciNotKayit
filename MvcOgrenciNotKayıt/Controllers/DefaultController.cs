@@ -38,9 +38,17 @@ namespace MvcOgrenciNotKayıt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult DersGetir()
+        public ActionResult DersGetir(int id)
         {
-            return View();
+            var ders = db.TBLDERSLER.Find(id);
+            return View("DersGetir", ders);
+        }
+        public ActionResult Güncelle(TBLDERSLER p)
+        {
+            var drs = db.TBLDERSLER.Find(p.DERSID);
+            drs.DERSAD = p.DERSAD;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Default");
         }
     }
 }

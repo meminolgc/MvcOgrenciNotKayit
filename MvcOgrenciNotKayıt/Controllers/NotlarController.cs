@@ -22,13 +22,17 @@ namespace MvcOgrenciNotKayıt.Controllers
         {
             return View();
         }
-        [HttpPost]  
+        [HttpPost]
         public ActionResult YeniSinav(TBLNOTLAR tbl)
         {
             db.TBLNOTLAR.Add(tbl);
             db.SaveChanges();
             return RedirectToAction("Index");
-
+        }
+        public ActionResult NotGetir(int id)
+        {
+            var notlar = db.TBLNOTLAR.Find(id);
+            return View("NotGetir", notlar);
         }
     }
 }

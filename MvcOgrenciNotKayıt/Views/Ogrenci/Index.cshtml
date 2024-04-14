@@ -13,8 +13,7 @@
         <th>ÖĞRENCİ SOYADI</th>
         <th>ÖĞRENCİ CİNSİYET</th>
         <th>ÖĞRENCİ KULÜP</th>
-        <th>İŞLEMLER</th>
-        
+        <th>İŞLEMLER</th>      
     </tr>
     <tbody>
         @foreach (var ogr in Model)
@@ -27,7 +26,7 @@
                 <td>@ogr.OGRKULUP</td>
                 <td>
                     <a href="/Ogrenci/Sil/@ogr.OGRENCIID" class="btn btn-danger">Sil</a>
-                    <a href="/Ogrenci/Güncelle/@ogr.OGRENCIID" class="btn btn-success">Güncelle</a>
+                    <a href="/Ogrenci/OgrenciGetir/@ogr.OGRENCIID" class="btn btn-success">Güncelle</a>
                 </td>
             </tr>
         }
