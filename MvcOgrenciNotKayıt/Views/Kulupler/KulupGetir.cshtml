@@ -8,10 +8,11 @@
 
 @using (Html.BeginForm("Guncelle", "Kulupler", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.LabelFor(m => m.KULUPAD)
-        @Html.TextBoxFor(m => m.KULUPAD, new{@class="form-control"})
-    </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.KULUPAD)
+    @Html.TextBoxFor(m => m.KULUPAD, new{@class="form-control"})
+
+</div>
     @Html.HiddenFor(m => m.KULUPID)
     <div style="margin-top:15px">
         <button class="btn btn-info">Güncelle</button>
